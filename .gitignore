@@ -1,3 +1,7 @@
 /.vscode
 /.conda
 *.pdf
+/Chroma
+/Docs
+/logs
+/__pycache__

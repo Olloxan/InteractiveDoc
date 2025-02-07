@@ -2,8 +2,7 @@
 import json
 from langchain.docstore.document import Document
 
-from BaseModels import RawIngredientList, ComplexIngredientList
-from Logger import Logger
+from .Logger import Logger
 
 class FileLoader():
     def __init__(self) -> None:        
@@ -48,39 +47,6 @@ class FileLoader():
         with open(file_path, 'w', encoding="utf-8") as f:
             json.dump(serializable_docs, f, ensure_ascii=False)
         self.LogMessage(f"Documents saved to {file_path}")
-
-
-    # RawIngredients
-    def store_raw_ingredient_lists_on_disk(self, obj_list: list[RawIngredientList], file_path: str):   
-        dict_list = [obj.dict() for obj in obj_list]
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(dict_list, f, ensure_ascii=False)  # Save as pretty-printed JSON
-        self.LogMessage(f"RawIngredientLists saved to {file_path}")
-
-    def load_raw_ingredient_lists_from_disk(self, file_path: str) -> list[RawIngredientList]:    
-        with open(file_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        # Convert the list of dictionaries to a list of RawIngredientList objects
-        self.LogMessage(f"RawIngredientLists loaded from {file_path}")    
-        return [RawIngredientList(**item) for item in data]
-
-
-    # ComplexIngredients
-    def store_complex_ingredient_list_on_disk(self, obj_list: list[ComplexIngredientList], file_path: str) -> None:
-        # Convert the Pydantic model to a dictionary
-        dict_list = [obj.dict() for obj in obj_list]    
-        # Write the dictionary as a JSON object to the file
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(dict_list, f, ensure_ascii=False)
-        self.LogMessage(f"ComplexIngredientLists saved to {file_path}")
-
-    def load_complex_ingredient_list_from_disk(self, file_path: str) -> list[ComplexIngredientList]:
-        # Read the JSON file
-        with open(file_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        # Convert the dictionary back to a Pydantic model
-        self.LogMessage(f"ComplexIngredientLists loaded from {file_path}")    
-        return [ComplexIngredientList(**item) for item in data]
 
     # Text
     def write_text_to_file(self, text:str, filename:str) -> None:
