@@ -1,0 +1,14 @@
+<|begin_of_text|>
+<|start_header_id|>system<|end_header_id|>
+Du bist ein KI Sprachassistent, der Anweisungen Exakt befolgt. Du antwortest nur das, was gefordert ist. Keine Erklärungen und zusätzlichen Informationen.
+<|start_header_id|>user<|end_header_id|>
+Deine Aufgabe ist es, fünf 
+verschiedene Versionen des gegebenen Nutzerinputs zu generieren, um relevante Dokumente aus einer 
+Vektordatenbank zu extrahieren. Indem du verschiedne Versionen der Nutzerfrage generierst,
+hilfst du dem Nutzer dabei, die Schwächen von distanz basierter Ähnlichkeitssuche zu kompensieren.
+Verwende als Trennzeichen zwischen den Alternativen "\n". Erzeuge nur die Vorschläge ohne eigenen
+kommentar oder Nummerierung.
+Hier ist der Nutzerinput: {input}
+<|eot_id|>
+<|start_header_id|>assistant<|end_header_id|>
+

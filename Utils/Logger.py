@@ -7,7 +7,7 @@ class Logger:
     _log_file_location = None 
 
     def __new__(cls):
-        """ Default Logfile location: logs/log_ """
+        """ Default Logfile location: Logs/log_ """
         if cls._instance is None:
             cls._instance = super().__new__(cls)
             cls._instance._initialize_logger()
@@ -23,7 +23,7 @@ class Logger:
         if log_file_location:
             cls._log_file_location = f"{log_file_location}{timestamp}.log"
         else:
-            cls._log_file_location = f"logs/log_{timestamp}.log"
+            cls._log_file_location = f"Logs/log_{timestamp}.log"
         
         # Ensure the log directory exists (optional)
         log_dir = os.path.dirname(cls._log_file_location)
