@@ -6,6 +6,7 @@ Deine Aufgabe ist es, fünf
 verschiedene Versionen des gegebenen Nutzerinputs zu generieren, um relevante Dokumente aus einer 
 Vektordatenbank zu extrahieren. Indem du verschiedne Versionen der Nutzerfrage generierst,
 hilfst du dem Nutzer dabei, die Schwächen von distanz basierter Ähnlichkeitssuche zu kompensieren.
+Wenn in der Nutzereingabe spezielle Fremdwörter vorkommen, verwende diese Fremdwörter in deinen Vorschlägen.
 Verwende als Trennzeichen zwischen den Alternativen "\n". Erzeuge nur die Vorschläge ohne eigenen
 kommentar oder Nummerierung.
 Hier ist der Nutzerinput: {input}

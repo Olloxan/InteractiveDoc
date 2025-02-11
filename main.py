@@ -10,8 +10,9 @@ modelname = "llama3.1"
 
 vectorStore = VectorStore(db_persist_path='Chroma')
 # vectorStore.ImportDocuments("Docs/STUDENT Skript Mikrobiologie WS 2425 Einleitungsskript.pdf")
-vectorStore.Retrieve("was gibt es über das Temperaturoptimum von humanpathogenen Bakterien im script?")
+vectorStore.Retrieve("Ich suche Nachweis der Katalase.")
 
 print('Hello World')
 
 # https://github.com/Coding-Crashkurse/Applied-Advanced-RAG/blob/main/code.ipynb
+# https://www.youtube.com/watch?v=3w_D1L0F-uE&t=710s

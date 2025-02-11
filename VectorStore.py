@@ -63,14 +63,18 @@ class VectorStore:
     def Retrieve(self, query:str):
         expander = RunnablePromptExpander(llm="llama3.1:8b-instruct-q4_K_S")
         queryStrings = expander.invoke({"input":query})
-        retriever = self.chroma_db.as_retriever()
+        queryStrings.append(query)
+        retriever = self.chroma_db.as_retriever(search_kwargs={"k": 5})
         docs = [retriever.invoke(query) for query in queryStrings]
         
+        
+
         unique_contents = set()
         unique_docs = []
         for sublist in docs:
-            for doc in sublist:
+            for doc in sublist:                
                 if doc.page_content not in unique_contents:
+                    self.LogMessage(f"retrieval Result: {doc.page_content}")
                     unique_docs.append(doc)
                     unique_contents.add(doc.page_content)
         unique_contents = list(unique_contents)
