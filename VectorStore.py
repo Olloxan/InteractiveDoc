@@ -64,11 +64,10 @@ class VectorStore:
         expander = RunnablePromptExpander(llm="llama3.1:8b-instruct-q4_K_S")
         queryStrings = expander.invoke({"input":query})
         queryStrings.append(query)
+        
         retriever = self.chroma_db.as_retriever(search_kwargs={"k": 5})
         docs = [retriever.invoke(query) for query in queryStrings]
-        
-        
-
+                
         unique_contents = set()
         unique_docs = []
         for sublist in docs:
@@ -78,8 +77,9 @@ class VectorStore:
                     unique_docs.append(doc)
                     unique_contents.add(doc.page_content)
         unique_contents = list(unique_contents)
-        cross_encoder = CrossEncoder(model_name='cross-encoder/ms-marco-MiniLM-L-6-v2', cache_dir='Data')      
-        
+        # cross_encoder = CrossEncoder(model_name='cross-encoder/ms-marco-MiniLM-L-6-v2', cache_dir='Data\ms-marco')      # "svalabs/cross-electra-ms-marco-german-uncased"
+        cross_encoder = CrossEncoder(model_name='cross-encoder/msmarco-MiniLM-L12-en-de-v1', cache_dir='Data\ms-marco')  
+
         pairs = []
         for doc in unique_contents:
             pairs.append([query, doc])
