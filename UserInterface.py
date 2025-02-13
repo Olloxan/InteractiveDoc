@@ -22,9 +22,8 @@ def plot_function():
     return fig
 
 class UserInterface:
-    def __init__(self, chat_fn=None, doc_retrieval_fn=None) -> None:
-        self._chat_function = chat_fn        
-        self._doc_retrieval_function = doc_retrieval_fn
+    def __init__(self, chat_fn=None) -> None:
+        self._chat_function = chat_fn                
         self.fileloader = FileLoader()
         self.config = ConfigManager()
                     
@@ -37,7 +36,7 @@ class UserInterface:
                     # Left column: Week Plan Table
                     with gr.Column(scale=1):
                         gr.Markdown("### Week Plan")
-                        plot_output = gr.Plot(plot_function, label="Matplotlib Plot")                        
+                        gr.Plot(plot_function, label="Matplotlib Plot")                        
                     
                     # Middle column: Chatbot
                     with gr.Column(scale=1):
