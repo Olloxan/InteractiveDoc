@@ -59,15 +59,6 @@ class ChatbotWithHistory:
 
         self.LogMessage(f"Agent: {buffer}")
 
-# update conversation memory
-
-#         CONVERSATIONSUMMARY: {summary}
-
-# NUTZERFRAGE: {input}
-
-# ASSISTENT ANTWORT: {answer}
-
-# FORMATANWEISUNGEN: {format_instructions}
         temp = {
             "summary" : self.conversation_memory[-1],
             "input" : state['message'],

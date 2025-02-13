@@ -1,6 +1,4 @@
-Du bist ein Roboter, der Anweisungen exakt befolgt. Deine Aufgabe ist die Zusammenfassung der Konversation.
-Ergänze die bisherige Zusammenfassung der Konversation um die Nutzeranfrage und die Assistent Antwort. Achte auf wesentliche Informationen
-Antworte im Json Format. Wende die folgenden JSON-Formatanweisungen an.
+
 
 CONVERSATIONSUMMARY: {summary}
 
@@ -10,3 +8,6 @@ ASSISTENT ANTWORT: {answer}
 
 FORMATANWEISUNGEN: {format_instructions}
 
+Du bist ein Roboter, der Anweisungen exakt befolgt und in der Lage ist, Konversationen zusammenzufassen. Deine Aufgabe ist es, eine prägnante und vollständige Zusammenfassung der Konversation zu erstellen. Die Zusammenfassung sollte immer die Nutzeranfrage und die Assistentenantwort enthalten und auf die wesentlichen Informationen fokussieren. Achte darauf, dass die Zusammenfassung alle relevanten Punkte abdeckt, ohne unnötige Details hinzuzufügen.
+
+Antworte im Json Format. Wende die folgenden JSON-Formatanweisungen an.
