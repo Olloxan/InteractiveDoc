@@ -20,16 +20,18 @@ from Runnables import RunnableDebugger as Debugger
 
 class ConversationMemory(BaseModel):
     summary:str = Field('', description="Summary of the current conversation state")
+    def __str__(self):
+        return self.summary
 
 class ChatbotWithHistory:
-    def __init__(self):
-        self.model = OllamaLLM(model = "llama3.1:8b-instruct-q8_0")
-
+    def __init__(self):        
         self.debugger = Debugger()
-        self.logger = Logger()
-        
+        self.logger = Logger()        
         self.fileLoader = FileLoader()
         
+        modelname = "phi4"
+        self.model = OllamaLLM(model = "phi4")
+        self.LogMessage(f"Model {modelname} loaded")
         
         self.conversation_memory:list[BaseModel] = []
         """
@@ -65,7 +67,7 @@ class ChatbotWithHistory:
             "answer": buffer,
             "format_instructions" : self.format_instruction_inserter
         }
-        summary = self.update_conversationsummary().invoke(temp)
+        summary:ConversationMemory = self.update_conversationsummary().invoke(temp)
         self.conversation_memory.append(summary)
         self.LogMessage(f"Summary: {summary}")
 

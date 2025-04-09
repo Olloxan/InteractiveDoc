@@ -1,0 +1,3 @@
+Ideas
+
+* RunnableParallel für die Auswertung des Gespräches (Summary, open Ideas, special information)
