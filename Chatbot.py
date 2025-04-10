@@ -30,7 +30,7 @@ class ChatbotWithHistory:
         self.fileLoader = FileLoader()
         
         modelname = "phi4"
-        self.model = OllamaLLM(model = "phi4")
+        self.model = OllamaLLM(model = modelname)
         self.LogMessage(f"Model {modelname} loaded")
         
         self.conversation_memory:list[BaseModel] = []
