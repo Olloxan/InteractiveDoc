@@ -1,6 +1,7 @@
 import json
 import os
 from threading import Lock
+from pathlib import Path
 from .Logger import Logger
 
 class ConfigManager:
@@ -20,6 +21,7 @@ class ConfigManager:
         self.logger = Logger()
         # Load or create an empty config
         if not os.path.exists(self.config_file):
+            Path("Data").mkdir(exist_ok=True)
             with open(self.config_file, 'w') as f:
                 json.dump({}, f)
         self._load_config()

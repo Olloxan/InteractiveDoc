@@ -29,7 +29,7 @@ class ChatbotWithHistory:
         self.logger = Logger()        
         self.fileLoader = FileLoader()
         
-        modelname = "phi4"
+        modelname = "llama3.1"
         self.model = OllamaLLM(model = modelname)
         self.LogMessage(f"Model {modelname} loaded")
         
@@ -54,6 +54,9 @@ class ChatbotWithHistory:
 
         self.LogMessage(f"User: {state['message']}")
         
+        if "Easterbomb" in state['message']:            
+            self.LogException(Exception("Easterbomb detected"), "Exiting conversation...")
+           
         buffer = ""
         for token in self.chat_bot().stream(state):
             buffer += token
